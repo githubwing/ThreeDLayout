@@ -1,15 +1,15 @@
 # ThreeDLayout
-一款3D Layout，他可以让任何view拥有3D效果，可以触摸展示3D效果，或者执行翻转动画。
+A 3D Layout,When you use it warp other view,it can became a 3D view
 
-# 效果预览
+# preview
 
 
 ![image](https://github.com/githubwing/ThreeDLayout/raw/master/img/2.gif)
 
 ![image](https://github.com/githubwing/ThreeDLayout/raw/master/img/1.gif)
-# 如何使用
+# How to Use
 
-1.将ThreedLayout包裹你想要的布局
+1.Put ThreDLayout as your parent view
 
 ```
  <com.wingsofts.threedlayout.ThreeDLayout
@@ -32,16 +32,16 @@
 
 ```
 
-之后，调用以下方法有对应效果
+then,you can call method 
 
 ```
-//开启触摸模式
+//set touch mode enable
 layout.setTouchable(true);
 
-//改变触摸模式
+//set touch mode
 layout.setTouchMode(ThreeDLayout.MODE_BOTH_X_Y);
 
-//开始执行动画
+//start turn Animate
 startVerticalAnimate(long duration);
 startVerticalAnimateDelayed(final long delayed, final long duration)
 
