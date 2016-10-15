@@ -1,7 +1,7 @@
 # ThreeDLayout
 一款3D Layout，他可以让任何view拥有3D效果，可以触摸展示3D效果，或者执行翻转动画。
 
-[ENGLISH README]((https://github.com/githubwing/ThreeDLayout/raw/master/README_EN.md))
+[ENGLISH README](https://github.com/githubwing/ThreeDLayout/raw/master/README_EN.md)
 # 效果预览
 
 
