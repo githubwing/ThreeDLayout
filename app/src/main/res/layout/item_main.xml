@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.wingsofts.threedlayout.ThreeDLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:background="@color/colorPrimary"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+
+  <LinearLayout
+      android:background="@color/colorPrimary"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal"
+      android:padding="16dp"
+      >
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="left"
+        android:textColor="#fff"
+        android:textSize="16sp"
+        />
+    <TextView
+        android:id="@+id/tv_temperature"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="30℃"
+        android:textColor="#fff"
+        android:textSize="16sp"
+        />
+  </LinearLayout>
+</com.wingsofts.threedlayout.ThreeDLayout>

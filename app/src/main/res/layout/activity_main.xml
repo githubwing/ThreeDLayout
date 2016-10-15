@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/threeDLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.wingsofts.myapplication.MainActivity"
+    >
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+  <com.wingsofts.threedlayout.ThreeDLayout
+      android:background="@color/colorPrimary"
+      android:id="@+id/td_header"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      >
+
+   <TextView
+       android:id="@+id/textView"
+      android:text="30℃"
+      android:textColor="#fff"
+      android:gravity="center"
+      android:textSize="80sp"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      />
+  </com.wingsofts.threedlayout.ThreeDLayout>
+
+  <com.wingsofts.myapplication.MyRecyclerView
+      android:id="@+id/recyclerView"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:text="Hello World!"
+      />
+  <Button
+      android:onClick = "onClick"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      />
+
+</LinearLayout>
+</LinearLayout>
