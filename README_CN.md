@@ -13,7 +13,7 @@
 ![image](https://github.com/githubwing/ThreeDLayout/raw/master/img/3.gif)
 # 如何使用
 
-1.将ThreedLayout包裹你想要的布局
+1.将ThreeDLayout包裹你想要的布局(注意:ThreeDlayout只能有一个子view)
 
 ```
  <com.wingsofts.threedlayout.ThreeDLayout
@@ -51,6 +51,11 @@ startVerticalAnimateDelayed(final long delayed, final long duration)
 
 startHorizontalAnimate(long duration)
 startHorizontalAnimateDelayed(final long delayed, final long duration)
+
+//开启循环动画
+startHorizontalAnimate()
+//关闭循环动画
+stopAnimate()
 
 ```
 
