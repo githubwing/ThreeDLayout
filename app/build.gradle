@@ -27,5 +27,6 @@ dependencies {
   compile project(':threedlayout')
   compile 'com.android.support:appcompat-v7:24.2.1'
   compile 'com.android.support:recyclerview-v7:24.2.1'
+  compile 'de.hdodenhof:circleimageview:2.0.0'
   testCompile 'junit:junit:4.12'
 }

@@ -7,7 +7,7 @@
     android:id="@+id/threeDLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.wingsofts.myapplication.MainActivity"
+    tools:context="com.wingsofts.myapplication.WeatherActivity"
     >
 <LinearLayout
     android:orientation="vertical"
@@ -36,9 +36,10 @@
       android:id="@+id/recyclerView"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:text="Hello World!"
       />
   <Button
+      android:text="START"
+
       android:onClick = "onClick"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"

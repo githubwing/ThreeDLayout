@@ -12,7 +12,7 @@ import com.wingsofts.threedlayout.ThreeDLayout;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class WeatherActivity extends AppCompatActivity {
   RecyclerView recyclerView;
   private Adapter adapter;
   private boolean flag = true;
@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
   @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_main);
+    setContentView(R.layout.activity_weather);
     recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
     list.add("周日");
     list.add("周一");

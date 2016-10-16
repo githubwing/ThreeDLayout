@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<com.wingsofts.threedlayout.ThreeDLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/td_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/activity_user_center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#f1f1f1"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@color/colorPrimary"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <com.wingsofts.threedlayout.ThreeDLayout
+                android:id="@+id/td_avatar"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#00000000">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/avatar" />
+
+            </com.wingsofts.threedlayout.ThreeDLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Touch My Avatar"
+                android:textColor="#fff"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="#fff"
+            android:padding="16dp"
+            android:text="我的钱包"
+            android:textSize="16sp" />
+
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#fff"
+            android:padding="16dp"
+            android:text="我的关注"
+            android:textSize="16sp" />
+
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#fff"
+            android:padding="16dp"
+            android:text="我的收藏"
+            android:textSize="16sp" />
+
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#fff"
+            android:padding="16dp"
+            android:text="我的消息"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="#fff"
+            android:padding="16dp"
+            android:text="设置"
+            android:textSize="16sp" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="refresh"
+            android:text="REFRESH" />
+    </LinearLayout>
+
+</com.wingsofts.threedlayout.ThreeDLayout>

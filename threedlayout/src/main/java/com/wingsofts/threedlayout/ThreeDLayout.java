@@ -7,7 +7,6 @@ import android.graphics.Camera;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Matrix;
-import android.graphics.drawable.BitmapDrawable;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -76,6 +75,12 @@ public class ThreeDLayout extends ViewGroup {
   private float mDegreeY = 0;
   private float mDegreeX = 0;
 
+  //the flag of animate
+  private boolean isPlaying = false;
+
+  //the degree of longer animate
+  private int mLoopAnimateY = 0;
+
   public ThreeDLayout(Context context) {
     this(context, null);
   }
@@ -132,6 +137,15 @@ public class ThreeDLayout extends ViewGroup {
 
     mCamera.rotateY(mDegreeY);
     mCamera.rotateX(mDegreeX);
+
+    if(isPlaying){
+      mCamera.rotateY(mLoopAnimateY++);
+      Log.e("wing",mLoopAnimateY + "");
+      if(mLoopAnimateY == 360){
+        mLoopAnimateY = 0;
+      }
+      invalidate();
+    }
     mCamera.getMatrix(mMatrix);
     mCamera.restore();
     mMatrix.preTranslate(-mCenterX, -mCenterY);
@@ -342,4 +356,20 @@ public class ThreeDLayout extends ViewGroup {
 
   }
 
+  /**
+   * start loop animate
+   */
+  public void startHorizontalAnimate(){
+    isPlaying = true;
+    invalidate();
+  }
+
+  /**
+   * stop the loop animate
+   */
+  public void stopAnimate(){
+    isPlaying = false;
+    mLoopAnimateY = 0;
+    invalidate();
+  }
 }
