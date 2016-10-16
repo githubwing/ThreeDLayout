@@ -5,9 +5,11 @@ A 3D Layout,When you use it warp other view,it can became a 3D view
 # preview
 
 
+![image](https://github.com/githubwing/ThreeDLayout/raw/master/img/1.gif)
+
 ![image](https://github.com/githubwing/ThreeDLayout/raw/master/img/2.gif)
 
-![image](https://github.com/githubwing/ThreeDLayout/raw/master/img/1.gif)
+![image](https://github.com/githubwing/ThreeDLayout/raw/master/img/3.gif)
 # How to Use
 
 1.Let ThreDLayout as your parent view
@@ -49,6 +51,11 @@ startVerticalAnimateDelayed(final long delayed, final long duration)
 startHorizontalAnimate(long duration)
 startHorizontalAnimateDelayed(final long delayed, final long duration)
 
+//start loop animate
+startHorizontalAnimate()
+
+//stop loop animate
+stopAnimate()
 ```
 
 # License
