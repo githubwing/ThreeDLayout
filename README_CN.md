@@ -5,9 +5,12 @@
 # 效果预览
 
 
+![image](https://github.com/githubwing/ThreeDLayout/raw/master/img/1.gif)
+
 ![image](https://github.com/githubwing/ThreeDLayout/raw/master/img/2.gif)
 
-![image](https://github.com/githubwing/ThreeDLayout/raw/master/img/1.gif)
+
+![image](https://github.com/githubwing/ThreeDLayout/raw/master/img/3.gif)
 # 如何使用
 
 1.将ThreedLayout包裹你想要的布局
