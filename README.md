@@ -1,7 +1,7 @@
 # ThreeDLayout
 A 3D Layout,When you use it warp other view,it can became a 3D view
 
-[中文文档](https://github.com/githubwing/ThreeDLayout/blob/master/README_EN.md)
+[中文文档](https://github.com/githubwing/ThreeDLayout/raw/master/README_CN.md)
 # preview
 
 
