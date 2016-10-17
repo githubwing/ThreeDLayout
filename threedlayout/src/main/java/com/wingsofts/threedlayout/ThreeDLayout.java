@@ -8,41 +8,40 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Matrix;
 import android.util.AttributeSet;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
 /**
+ * A 3D Layout
+ * When you use it warp other view,it can became a 3D view
+ * Enable the touch mode or start Animate
  *
- *              A 3D Layout
- *              When you use it warp other view,it can became a 3D view
- *              Enable the touch mode or start Animate
  *
  *
- * 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
- *　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
- *　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
- *　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
- *　　　　　　　　　　　　　　　　　　　　　　　　　　　 　　　　ｗｗｗ　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
- *　　　　　　　　　　　　　　　　　　　　　　　　　　　 　　　　ｗｗｗ　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　ｗｗ　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　ｗ
- *　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　ｗｗｗｗ　　　　　　
- *　　　　　ｗｗ　　　ｗｗ　　　ｗｗｗ　　　　　　　　　　　　　　ｗｗ　　　　　　　　　　　　　　　　　ｗ　　ｗｗｗ　　　　　　　　　　　　　　　　　　ｗｗｗｗｗｗｗ　　　　　　
- *　　　　　ｗｗ　　　ｗｗ　　　ｗｗｗ　　　　　　　　　　　　　　ｗｗ　　　　　　　　　　　　　　　　ｗｗｗｗｗｗｗｗｗ　　　　　　　　　　　　　　ｗｗｗｗｗｗｗ　　　　　　　　
- *　　　　　ｗｗ　　　ｗｗｗ　　ｗｗ　　　　　　　　　　　　　　　ｗｗ　　　　　　　　　　　　　　　　ｗｗｗｗｗ　ｗｗｗ　　　　　　　　　　　　　ｗｗｗｗｗｗｗｗ　　　　　　　　
- *　　　　　ｗｗｗ　ｗｗｗｗ　ｗｗｗ　　　　　　　　　　　　　　　ｗｗ　　　　　　　　　　　　　　　　ｗｗｗ　　　　ｗｗ　　　　　　　　　　　　　ｗｗ　　　　ｗｗｗ　　　　　　　
- *　　　　　　ｗｗ　ｗｗｗｗ　ｗｗｗ　　　　　　　　　　　　　　　ｗｗ　　　　　　　　　　　　　　　　ｗｗｗ　　　　ｗｗ　　　　　　　　　　　　　ｗｗｗｗ　ｗｗｗ　　　　　　　　
- *　　　　　　ｗｗ　ｗｗｗｗ　ｗｗ　　　　　　　　　　　　　　　　ｗｗ　　　　　　　　　　　　　　　　ｗｗｗ　　　　ｗｗ　　　　　　　　　　　　　　ｗｗｗｗｗｗｗ　　　　　　　　
- *　　　　　　ｗｗｗｗｗｗｗｗｗｗ　　　　　　　　　　　　　　　　ｗｗ　　　　　　　　　　　　　　　　ｗｗｗ　　　　ｗｗ　　　　　　　　　　　　　ｗｗｗｗｗｗ　　　　　　　　　　
- *　　　　　　ｗｗｗｗ　　ｗｗｗｗ　　　　　　　　　　　　　　　　ｗｗ　　　　　　　　　　　　　　　　ｗｗｗ　　　　ｗｗ　　　　　　　　　　　　　ｗｗｗｗｗｗ　　　　　　　　　　
- *　　　　　　　ｗｗｗ　　ｗｗｗ　　　　　　　　　　　　　　　　　ｗｗ　　　　　　　　　　　　　　　　ｗｗｗ　　　　ｗｗ　　　　　　　　　　　　　　ｗｗｗｗｗｗｗｗ　　　　　　　
- *　　　　　　　ｗｗｗ　　ｗｗｗ　　　　　　　　　　　　　　　　　ｗｗ　　　　　　　　　　　　　　　　ｗｗｗ　　　　ｗｗ　　　　　　　　　　　　　ｗｗｗ　ｗｗｗｗｗｗ　　　　　　
- *　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　ｗ　　　　　　ｗ　　　　　　　　　　　　　ｗｗ　　　　　ｗｗｗ　　　　　　
- *　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　ｗｗｗｗｗｗｗｗｗｗ　　　　　　
- *　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　ｗｗｗｗｗｗｗｗｗ　　　　　　　
- * 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
+ *
+ *
+ *
+ * 　　　　　　　　　　　　　　　　　　　　　　　　　　　 　　　　ｗｗｗ
+ * 　　　　　　　　　　　　　　　　　　　　　　　　　　　 　　　　ｗｗｗ　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　ｗｗ　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　ｗ
+ * 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　ｗｗｗｗ
+ * 　　　　　ｗｗ　　　ｗｗ　　　ｗｗｗ　　　　　　　　　　　　　　ｗｗ　　　　　　　　　　　　　　　　　ｗ　　ｗｗｗ　　　　　　　　　　　　　　　　　　ｗｗｗｗｗｗｗ
+ * 　　　　　ｗｗ　　　ｗｗ　　　ｗｗｗ　　　　　　　　　　　　　　ｗｗ　　　　　　　　　　　　　　　　ｗｗｗｗｗｗｗｗｗ　　　　　　　　　　　　　　ｗｗｗｗｗｗｗ
+ * 　　　　　ｗｗ　　　ｗｗｗ　　ｗｗ　　　　　　　　　　　　　　　ｗｗ　　　　　　　　　　　　　　　　ｗｗｗｗｗ　ｗｗｗ　　　　　　　　　　　　　ｗｗｗｗｗｗｗｗ
+ * 　　　　　ｗｗｗ　ｗｗｗｗ　ｗｗｗ　　　　　　　　　　　　　　　ｗｗ　　　　　　　　　　　　　　　　ｗｗｗ　　　　ｗｗ　　　　　　　　　　　　　ｗｗ　　　　ｗｗｗ
+ * 　　　　　　ｗｗ　ｗｗｗｗ　ｗｗｗ　　　　　　　　　　　　　　　ｗｗ　　　　　　　　　　　　　　　　ｗｗｗ　　　　ｗｗ　　　　　　　　　　　　　ｗｗｗｗ　ｗｗｗ
+ * 　　　　　　ｗｗ　ｗｗｗｗ　ｗｗ　　　　　　　　　　　　　　　　ｗｗ　　　　　　　　　　　　　　　　ｗｗｗ　　　　ｗｗ　　　　　　　　　　　　　　ｗｗｗｗｗｗｗ
+ * 　　　　　　ｗｗｗｗｗｗｗｗｗｗ　　　　　　　　　　　　　　　　ｗｗ　　　　　　　　　　　　　　　　ｗｗｗ　　　　ｗｗ　　　　　　　　　　　　　ｗｗｗｗｗｗ
+ * 　　　　　　ｗｗｗｗ　　ｗｗｗｗ　　　　　　　　　　　　　　　　ｗｗ　　　　　　　　　　　　　　　　ｗｗｗ　　　　ｗｗ　　　　　　　　　　　　　ｗｗｗｗｗｗ
+ * 　　　　　　　ｗｗｗ　　ｗｗｗ　　　　　　　　　　　　　　　　　ｗｗ　　　　　　　　　　　　　　　　ｗｗｗ　　　　ｗｗ　　　　　　　　　　　　　　ｗｗｗｗｗｗｗｗ
+ * 　　　　　　　ｗｗｗ　　ｗｗｗ　　　　　　　　　　　　　　　　　ｗｗ　　　　　　　　　　　　　　　　ｗｗｗ　　　　ｗｗ　　　　　　　　　　　　　ｗｗｗ　ｗｗｗｗｗｗ
+ * 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　ｗ　　　　　　ｗ　　　　　　　　　　　　　ｗｗ　　　　　ｗｗｗ
+ * 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　ｗｗｗｗｗｗｗｗｗｗ
+ * 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　ｗｗｗｗｗｗｗｗｗ
+ *
  * Created by wing on 10/14/16.
- *
  */
 
 public class ThreeDLayout extends ViewGroup {
@@ -65,11 +64,11 @@ public class ThreeDLayout extends ViewGroup {
   public static int MODE_BOTH_X_Y = 2;
   private int mMode = MODE_BOTH_X_Y;
 
-
+  private float mDensity;
+  private float[] mValues = new float[9];
 
   //the flag of touch
   private boolean isCanTouch = false;
-
 
   //the degree of animation
   private float mDegreeY = 0;
@@ -97,6 +96,11 @@ public class ThreeDLayout extends ViewGroup {
     if (getBackground() == null) {
       setBackgroundColor(Color.parseColor("#ffffff"));
     }
+
+    DisplayMetrics dm = new DisplayMetrics();
+    dm = getResources().getDisplayMetrics();
+
+    mDensity = dm.density;
     mCamera = new Camera();
     mMatrix = new Matrix();
   }
@@ -134,19 +138,25 @@ public class ThreeDLayout extends ViewGroup {
       mCamera.rotateY(mCanvasRotateY);
     }
 
-
     mCamera.rotateY(mDegreeY);
     mCamera.rotateX(mDegreeX);
 
-    if(isPlaying){
+    if (isPlaying) {
       mCamera.rotateY(mLoopAnimateY++);
-      Log.e("wing",mLoopAnimateY + "");
-      if(mLoopAnimateY == 360){
+      Log.e("wing", mLoopAnimateY + "");
+      if (mLoopAnimateY == 360) {
         mLoopAnimateY = 0;
       }
       invalidate();
     }
     mCamera.getMatrix(mMatrix);
+
+    // fix the Camera bug,
+
+    mMatrix.getValues(mValues);
+    mValues[6] = mValues[6] / mDensity;
+    mValues[7] = mValues[7] / mDensity;
+    mMatrix.setValues(mValues);
     mCamera.restore();
     mMatrix.preTranslate(-mCenterX, -mCenterY);
     mMatrix.postTranslate(mCenterX, mCenterY);
@@ -193,8 +203,6 @@ public class ThreeDLayout extends ViewGroup {
 
   /**
    * get the value to rotate
-   * @param x
-   * @param y
    */
   private void rotateCanvasWhenMove(float x, float y) {
     float dx = x - mCenterX;
@@ -228,7 +236,6 @@ public class ThreeDLayout extends ViewGroup {
 
   /**
    * set the max rotate degree
-   * @param degree
    */
   public void setMaxRotateDegree(int degree) {
     mCanvasMaxRotateDegree = degree;
@@ -236,10 +243,9 @@ public class ThreeDLayout extends ViewGroup {
 
   /**
    * start horizontal turn animate
-   * @param duration
    */
-  public void startHorizontalAnimate(long duration){
-    ValueAnimator animator = ValueAnimator.ofFloat(-180f,0f);
+  public void startHorizontalAnimate(long duration) {
+    ValueAnimator animator = ValueAnimator.ofFloat(-180f, 0f);
     animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
       @Override public void onAnimationUpdate(ValueAnimator animation) {
         mDegreeY = (float) animation.getAnimatedValue();
@@ -264,18 +270,14 @@ public class ThreeDLayout extends ViewGroup {
       }
     });
 
-
     animator.setDuration(duration);
     animator.start();
-
   }
 
   /**
    * start horizontal turn animate delayed
-   * @param delayed
-   * @param duration
    */
-  public void startHorizontalAnimateDelayed(final long delayed, final long duration){
+  public void startHorizontalAnimateDelayed(final long delayed, final long duration) {
 
     new Thread(new Runnable() {
       @Override public void run() {
@@ -286,21 +288,18 @@ public class ThreeDLayout extends ViewGroup {
         }
         post(new Runnable() {
           @Override public void run() {
-           startHorizontalAnimate(duration);
+            startHorizontalAnimate(duration);
           }
         });
-
       }
     }).start();
-
   }
 
   /**
    * start vertical turn animate
-   * @param duration
    */
-  public void startVerticalAnimate(long duration){
-    ValueAnimator animator = ValueAnimator.ofFloat(-180f,0f);
+  public void startVerticalAnimate(long duration) {
+    ValueAnimator animator = ValueAnimator.ofFloat(-180f, 0f);
     animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
       @Override public void onAnimationUpdate(ValueAnimator animation) {
         mDegreeX = (float) animation.getAnimatedValue();
@@ -325,18 +324,14 @@ public class ThreeDLayout extends ViewGroup {
       }
     });
 
-
     animator.setDuration(duration);
     animator.start();
-
   }
 
   /**
    * start vertical turn animate delayed
-   * @param delayed
-   * @param duration
    */
-  public void startVerticalAnimateDelayed(final long delayed, final long duration){
+  public void startVerticalAnimateDelayed(final long delayed, final long duration) {
 
     new Thread(new Runnable() {
       @Override public void run() {
@@ -350,16 +345,14 @@ public class ThreeDLayout extends ViewGroup {
             startVerticalAnimate(duration);
           }
         });
-
       }
     }).start();
-
   }
 
   /**
    * start loop animate
    */
-  public void startHorizontalAnimate(){
+  public void startHorizontalAnimate() {
     isPlaying = true;
     invalidate();
   }
@@ -367,7 +360,7 @@ public class ThreeDLayout extends ViewGroup {
   /**
    * stop the loop animate
    */
-  public void stopAnimate(){
+  public void stopAnimate() {
     isPlaying = false;
     mLoopAnimateY = 0;
     invalidate();
