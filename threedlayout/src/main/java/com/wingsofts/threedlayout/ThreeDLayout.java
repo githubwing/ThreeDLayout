@@ -246,7 +246,7 @@ public class ThreeDLayout extends ViewGroup {
    * start horizontal turn animate
    */
   public void startHorizontalAnimate(long duration) {
-    ValueAnimator animator = ValueAnimator.ofFloat(-180f, 0f);
+    final ValueAnimator animator = ValueAnimator.ofFloat(-180f, 0f);
     animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
       @Override public void onAnimationUpdate(ValueAnimator animation) {
         mDegreeY = (float) animation.getAnimatedValue();
@@ -260,6 +260,7 @@ public class ThreeDLayout extends ViewGroup {
 
       @Override public void onAnimationEnd(Animator animation) {
         mDegreeY = 0;
+        animator.removeAllUpdateListeners();
       }
 
       @Override public void onAnimationCancel(Animator animation) {
@@ -300,7 +301,7 @@ public class ThreeDLayout extends ViewGroup {
    * start vertical turn animate
    */
   public void startVerticalAnimate(long duration) {
-    ValueAnimator animator = ValueAnimator.ofFloat(-180f, 0f);
+    final ValueAnimator animator = ValueAnimator.ofFloat(-180f, 0f);
     animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
       @Override public void onAnimationUpdate(ValueAnimator animation) {
         mDegreeX = (float) animation.getAnimatedValue();
@@ -314,6 +315,7 @@ public class ThreeDLayout extends ViewGroup {
 
       @Override public void onAnimationEnd(Animator animation) {
         mDegreeX = 0;
+        animator.removeAllUpdateListeners();
       }
 
       @Override public void onAnimationCancel(Animator animation) {
