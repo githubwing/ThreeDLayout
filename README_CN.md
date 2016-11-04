@@ -1,6 +1,9 @@
 # ThreeDLayout
 一款3D Layout，他可以让任何view拥有3D效果，可以触摸展示3D效果，或者执行翻转动画。
 
+[![](https://jitpack.io/v/githubwing/ThreeDLayout.svg)](https://jitpack.io/#githubwing/ThreeDLayout)
+
+
 [ENGLISH README](https://github.com/githubwing/ThreeDLayout/blob/master/README_EN.md)
 # 效果预览
 
@@ -12,10 +15,24 @@
 
 ![image](https://github.com/githubwing/ThreeDLayout/raw/master/img/3.gif)
 # 如何使用
+1.compile library
+```gradle
 
-1.将ThreeDLayout包裹你想要的布局(注意:ThreeDlayout只能有一个子view)
+allprojects {
+  repositories {
+    jcenter()
+    maven { url "https://jitpack.io" }
+  }
+}
+
+dependencies {
+	        compile 'com.github.githubwing:ThreeDLayout:1.0.0'
+	}
 
 ```
+2.将ThreeDLayout包裹你想要的布局(注意:ThreeDlayout只能有一个子view)
+
+```xml
  <com.wingsofts.threedlayout.ThreeDLayout
       android:background="@color/colorPrimary"
       android:id="@+id/td_header"
@@ -38,7 +55,7 @@
 
 之后，调用以下方法有对应效果
 
-```
+```java
 //开启触摸模式
 layout.setTouchable(true);
 
