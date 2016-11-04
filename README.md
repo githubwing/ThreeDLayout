@@ -1,4 +1,7 @@
 # ThreeDLayout
+
+[![](https://jitpack.io/v/githubwing/ThreeDLayout.svg)](https://jitpack.io/#githubwing/ThreeDLayout)
+
 A 3D Layout,When you use it warp other view,it can became a 3D view
 
 [中文文档](https://github.com/githubwing/ThreeDLayout/blob/master/README_CN.md)
