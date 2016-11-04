@@ -10,11 +10,25 @@ A 3D Layout,When you use it warp other view,it can became a 3D view
 ![image](https://github.com/githubwing/ThreeDLayout/raw/master/img/2.gif)
 
 ![image](https://github.com/githubwing/ThreeDLayout/raw/master/img/3.gif)
-# How to Use
+# USAGE
+1.compile library
+```gradle
 
-1.Let ThreeDLayout as your parent view(Tips:ThreeDLayout can only have one child)
+allprojects {
+  repositories {
+    jcenter()
+    maven { url "https://jitpack.io" }
+  }
+}
+
+dependencies {
+	        compile 'com.github.githubwing:ThreeDLayout:1.0.0'
+	}
 
 ```
+2.Let ThreeDLayout as your parent view(Tips:ThreeDLayout can only have one child)
+
+```xml
  <com.wingsofts.threedlayout.ThreeDLayout
       android:background="@color/colorPrimary"
       android:id="@+id/td_header"
@@ -37,7 +51,7 @@ A 3D Layout,When you use it warp other view,it can became a 3D view
 
 then,you can call method 
 
-```
+```java
 //set touch mode enable
 layout.setTouchable(true);
 
